@@ -1,0 +1,830 @@
+<!doctype html>
+<html land="eng">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Builder Page</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+<link href="css/BuilderPage.css" rel="stylesheet">
+<!------ This is for the slider ---------->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<!------ End of slider nonsense ---------->
+</head>
+
+<body>
+<!-- THIS IS THE NAV BAR (dont worry it wont bite) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <a class="navbar-brand" href="#">&nbsp;&nbsp;</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"> <br>
+  <br>
+  <br>
+  &nbsp;</span> </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <a href="HelpPage.html"> <span data-tip="Help"> <img alt="Help" src="images/qmark.png" width="70" height="70"> </span> </a> </div>
+</nav>
+<!-- THIS IS THE END OF THE NAV BAR (See it did not bite) --> 
+
+<!-- CODE FOR THE HEADER -->
+<div class="jumbotron jumbotron-fluid text-center" style = "background:#2867B2">
+  <h1 class="display-4" style = "color:white " font= "bolder">UML CLASS DIAGRAM BUILDER&nbsp;</h1>
+</div>
+<!-- END OF THE HEADER --> 
+
+<!-- CODE FOR THE UML Classes --> 
+
+<!--Textboxes will be added here -->
+
+<div class="UML Class" id="UMLClass"  > 
+  
+  <!-- Code of the uml class name -->
+  <div class = "Acol-xl-3 offset-xl-4 col-xl-4">
+    <label for="textfield" class="ClassName" style= "color: white">Class Name</label>
+    <span data-tip="Enter name of class">
+    <input type="text" name="className" id="className">
+    </span> <span data-tip="Add Class">
+    <input type = "button" class = "btn AddClass" id = "AddClassButton" value = "+" onClick = "AddClass()" />
+    </span> </div>
+  
+  <!-- End of the uml class name --> 
+  
+  <!-- Code for the drop down menus,add,delete buttons,and text,for class variable section -->
+  <form class="offset-xl-4 col-xl-4" id="ClassVar">
+    <br>
+    <div class="col-xl-12">
+      <h5 style="color:#2867B2;">Class Variables</h5>
+      <!-- Code for the drop down menu -->
+      <select name="DDL" class="DDL">
+        <option>Select Modifier</option>
+        <option value="Public">Public</option>
+        <option value="Private">Private</option>
+        <option value="Protected">Protected</option>
+      </select>
+      <!-- End for the drop down menu --> 
+      
+      <!-- Code for the text and Add button -->
+      
+      <label for="varName" ></label>
+      <span data-tip="Enter name of variable">
+      <input type="text" name="varName" id="varName">
+      </span> <span data-tip="Add variable">
+      <input type="button" name="buttonPlus" id="varPlusButton" value="+" onclick="AddTextBox()">
+      </span>
+      <div id="TextBoxContainer" > 
+        <!--Textboxes will be added here --> 
+      </div>
+      <br />
+      <asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />
+    </div>
+  </form>
+  
+  <!-- End for the drop down menus,add,delete buttons, and text for class variable section --> 
+  
+  <!-- Code for the drop down menus,add,delete buttons, and text for class function section -->
+  <form class="offset-xl-4 col-xl-4" id="classFunc">
+    <br>
+    <div class="col-xl-12"> 
+      <!-- Header for class variable section -->
+      <h5 style="color:#2867B2;">Class Functions </h5>
+      <!-- End of the Header for class variable section --> 
+      <!-- Code for the drop down menu-->
+      <select name="DDL" class="DDL">
+        <option>Select Modifier</option>
+        <option value="Public">Public</option>
+        <option value="Private">Private</option>
+        <option value="Protected">Protected</option>
+      </select>
+      <!-- End for the drop down menu--> 
+      
+      <!-- Code for text and add button-->
+      <label for="funcName"></label>
+      <span data-tip="Enter name of function">
+      <input type="text" name="funcName" id="funcName">
+      </span> <span data-tip="Add function">
+      <input name="button3" type="button" id="funcPlusButton" value="+" onclick="AddTextBox1()" >
+      </span> <br>
+      <div id="TextBoxContainer1" > 
+        <!--Textboxes will be added here --> 
+      </div>
+      <br />
+      <asp:button ID="btnPost1" runat="server" Text="Post" OnClick="Post" />
+    </div>
+    
+    <!-- End for text and add button-->
+    
+  </form>
+  <form class="Doffset-xl-4 col-xl-4">
+    <label for="textfield" class="ClassName" style= "color:#2867B2 ">Class Dependency</label>
+    <label for="dependName"></label>
+    <span data-tip="Enter name of dependent class">
+    <input type="text" name="dependName" id="dependName">
+    </span>
+  </form>
+  <br>
+  <!-- End for the drop down menus,add, delete buttons, and text for class function section --> 
+  
+  <!-- Code for the drop down menu for the Dependent Class--> 
+  
+</div>
+
+<!-- END OF UML CLASS DESIGN -->
+
+<div id="ClassContainer" > 
+  <!--Textboxes will be added here --> 
+</div>
+<asp:button id="1btnPost" runat="server" Text="Post" OnClick="Post" />
+<div id="ClassContainer1" > 
+  <!--Textboxes will be added here --> 
+</div>
+<asp:button id="btnPost2" runat="server" Text="Post" OnClick="Post" />
+<div id="ClassContainer2" > 
+  <!--Textboxes will be added here --> 
+</div>
+<asp:button id="btnPost3" runat="server" Text="Post" OnClick="Post" />
+<div id="ClassContainer3" > 
+  <!--Textboxes will be added here --> 
+</div>
+<asp:button id="btnPost4" runat="server" Text="Post" OnClick="Post" />
+<div id="ClassContainer4" > 
+  <!--Textboxes will be added here --> 
+</div>
+<asp:button id="btnPost5" runat="server" Text="Post" OnClick="Post" />
+<div id="ClassContainer5" > 
+  <!--Textboxes will be added here --> 
+</div>
+<asp:button id="btnPost6" runat="server" Text="Post" OnClick="Post" />
+<!----- Add Button --->
+<div id="ClassContainer6" > 
+  <!--Textboxes will be added here --> 
+</div>
+<asp:button id="btnPost7" runat="server" Text="Post" OnClick="Post" />
+<div id="ClassContainer7" > 
+  <!--Textboxes will be added here --> 
+</div>
+<asp:button id="btnPost8" runat="server" Text="Post" OnClick="Post" />
+<div id="ClassContainer8" > 
+  <!--Textboxes will be added here --> 
+</div>
+<asp:button id="btnPost9" runat="server" Text="Post" OnClick="Post" />
+<!----- Add Button ---> 
+
+<!-- Button --> 
+<!-- End of Button --> 
+<script type="text/javascript">
+	
+	
+	function GetDynamicClass(){
+		
+    return '<form class="Acol-xl-3 offset-xl-4 col-xl-4" style="background-color:#2867B2">'+ '<label for="textfield" class="ClassName" style= "color: white">Class Name</label>' + '<input type="text" name="className" id="className" />'+ ' <input type="button" name="button5" id="deleteClassBtn" value="-" onclick = "RemoveClass(form)"/>' + '<input type = "button" class = "btn AddClass" id = "AddClassButton1" value = "+" onClick = "AddClass1()"/>'+ '</form>'+'<form class="offset-xl-4 col-xl-4" id="ClassVar">'+ '<br>'+ '<div class="col-xl-12">' +'<h5 style="color:#2867B2;">Class Variables</h5>'+ '<label for="varName" ></label>'+'<select name="DDL" class="DDL">' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>' +'<input type="text" name="varName" id="varName2"/>' + '<input type="button" name="buttonPlus" id="varPlusButton" value="+" onclick="AddTextBox3()" />' + '<div id="TextBoxContainer3" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />'+'</div>'+'</form>'+'<form class="offset-xl-4 col-xl-4" id="classFunc" />'+'<div class="col-xl-12">'+ '<h5 style="color:#2867B2;">Class Functions </h5>' +'<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="funcName2" type="text" value ="" />' + '<input type="button" value="+" id="funcPlusButton" onclick = "AddTextBox4()" />'+ '<div id="TextBoxContainer4" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />' +'</div>'+ '</form>'+'<form class="Doffset-xl-4 col-xl-4">'+ '<label for="textfield" class="ClassName" style= "color:#2867B2 ">Class Dependency</label>'+ '<label for="dependName"></label>'+'<input type="text" name="dependName1" id="dependName1"/>'+ '</form>'+'</div>'+'<br>' 
+	}
+	function GetDynamicClass1(){
+	return'<form class="Acol-xl-3 offset-xl-4 col-xl-4" style="background-color:#2867B2">'+ '<label for="textfield" class="ClassName" style= "color: white">Class Name</label>' + '<input type="text" name="className" id="className" />'+ ' <input type="button" name="button5" id="deleteClassBtn" value="-" onclick = "RemoveClass1(form)"/>'+  '<input type = "button" class = "btn AddClass" id = "AddClassButton1" value = "+" onClick = "AddClass2()"/>' + '</form>'+'<form class="offset-xl-4 col-xl-4" id="ClassVar">'+ '<br>'+ '<div class="col-xl-12">' +'<h5 style="color:#2867B2;">Class Variables</h5>'+ '<label for="varName" ></label>'+'<select name="DDL" class="DDL">' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>' +'<input type="text" name="varName" id="varName2"/>' + '<input type="button" name="buttonPlus" id="varPlusButton" value="+" onclick="AddTextBox5()" />' + '<div id="TextBoxContainer5" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />'+'</div>'+'</form>'+'<form class="offset-xl-4 col-xl-4" id="classFunc" />'+'<div class="col-xl-12">'+ '<h5 style="color:#2867B2;">Class Functions </h5>' +'<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="funcName2" type="text" value ="" />' + '<input type="button" value="+" id="funcPlusButton" onclick = "AddTextBox6()" />'+ '<div id="TextBoxContainer6" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />' +'</div>'+ '</form>'+ '<form class="Doffset-xl-4 col-xl-4">'+ '<label for="textfield" class="ClassName" style= "color:#2867B2 ">Class Dependency</label>'+ '<label for="dependName"></label>'+'<input type="text" name="dependName1" id="dependName1"/>'+ '</form>'+'</div>'+'<br>' 
+	}
+	function GetDynamicClass2(){
+	return'<form class="Acol-xl-3 offset-xl-4 col-xl-4" style="background-color:#2867B2">'+ '<label for="textfield" class="ClassName" style= "color: white">Class Name</label>' + '<input type="text" name="className" id="className" />'+ ' <input type="button" name="button5" id="deleteClassBtn" value="-" onclick = "RemoveClass2(form)"/>'+'<input type = "button" class = "btn AddClass" id = "AddClassButton1" value = "+" onClick = "AddClass3()"/>'+ '</form>'+'<form class="offset-xl-4 col-xl-4" id="ClassVar">'+ '<br>'+ '<div class="col-xl-12">' +'<h5 style="color:#2867B2;">Class Variables</h5>'+ '<label for="varName" ></label>'+'<select name="DDL" class="DDL">' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>' +'<input type="text" name="varName" id="varName2"/>' + '<input type="button" name="buttonPlus" id="varPlusButton" value="+" onclick="AddTextBox7()" />' + '<div id="TextBoxContainer7" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />'+'</div>'+'</form>'+'<form class="offset-xl-4 col-xl-4" id="classFunc" />'+'<div class="col-xl-12">'+ '<h5 style="color:#2867B2;">Class Functions </h5>' +'<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="funcName2" type="text" value ="" />' + '<input type="button" value="+" id="funcPlusButton" onclick = "AddTextBox8()" />'+ '<div id="TextBoxContainer8" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />' +'</div>'+ '</form>'+'<form class="Doffset-xl-4 col-xl-4">'+ '<label for="textfield" class="ClassName" style= "color:#2867B2 ">Class Dependency</label>'+ '<label for="dependName"></label>'+'<input type="text" name="dependName1" id="dependName1"/>'+ '</form>'+'</div>'+'<br>' 
+	}
+	function GetDynamicClass3(){
+	return'<form class="Acol-xl-3 offset-xl-4 col-xl-4" style="background-color:#2867B2">'+ '<label for="textfield" class="ClassName" style= "color: white">Class Name</label>' + '<input type="text" name="className" id="className" />'+ ' <input type="button" name="button5" id="deleteClassBtn" value="-" onclick = "RemoveClass3(form)"/>'+  '<input type = "button" class = "btn AddClass" id = "AddClassButton1" value = "+" onClick = "AddClass4()"/>' + '</form>'+'<form class="offset-xl-4 col-xl-4" id="ClassVar">'+ '<br>'+ '<div class="col-xl-12">' +'<h5 style="color:#2867B2;">Class Variables</h5>'+ '<label for="varName" ></label>'+'<select name="DDL" class="DDL">' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>' +'<input type="text" name="varName" id="varName2"/>' + '<input type="button" name="buttonPlus" id="varPlusButton" value="+" onclick="AddTextBox9()" />' + '<div id="TextBoxContainer9" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />'+'</div>'+'</form>'+'<form class="offset-xl-4 col-xl-4" id="classFunc" />'+'<div class="col-xl-12">'+ '<h5 style="color:#2867B2;">Class Functions </h5>' +'<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="funcName2" type="text" value ="" />' + '<input type="button" value="+" id="funcPlusButton" onclick = "AddTextBox10()" />'+ '<div id="TextBoxContainer10" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />' +'</div>'+ '</form>'+'<form class="Doffset-xl-4 col-xl-4">'+ '<label for="textfield" class="ClassName" style= "color:#2867B2 ">Class Dependency</label>'+ '<label for="dependName"></label>'+'<input type="text" name="dependName1" id="dependName1"/>'+ '</form>'+'</div>'+'<br>'
+	}
+	function GetDynamicClass4(){
+	return'<form class="Acol-xl-3 offset-xl-4 col-xl-4" style="background-color:#2867B2">'+ '<label for="textfield" class="ClassName" style= "color: white">Class Name</label>' + '<input type="text" name="className" id="className" />'+ ' <input type="button" name="button5" id="deleteClassBtn" value="-" onclick = "RemoveClass4(form)"/>'+ '<input type = "button" class = "btn AddClass" id = "AddClassButton1" value = "+" onClick = "AddClass5()"/>' + '</form>'+'<form class="offset-xl-4 col-xl-4" id="ClassVar">'+ '<br>'+ '<div class="col-xl-12">' +'<h5 style="color:#2867B2;">Class Variables</h5>'+ '<label for="varName" ></label>'+'<select name="DDL" class="DDL">' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>' +'<input type="text" name="varName" id="varName2"/>' + '<input type="button" name="buttonPlus" id="varPlusButton" value="+" onclick="AddTextBox11()" />' + '<div id="TextBoxContainer11" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />'+'</div>'+'</form>'+'<form class="offset-xl-4 col-xl-4" id="classFunc" />'+'<div class="col-xl-12">'+ '<h5 style="color:#2867B2;">Class Functions </h5>' +'<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="funcName2" type="text" value ="" />' + '<input type="button" value="+" id="funcPlusButton" onclick = "AddTextBox12()" />'+ '<div id="TextBoxContainer12" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />' +'</div>'+ '</form>'+'<form class="Doffset-xl-4 col-xl-4">'+ '<label for="textfield" class="ClassName" style= "color:#2867B2 ">Class Dependency</label>'+ '<label for="dependName"></label>'+'<input type="text" name="dependName1" id="dependName1"/>'+ '</form>'+'</div>'+'<br>' 
+	}
+	function GetDynamicClass5(){
+	return'<form class="Acol-xl-3 offset-xl-4 col-xl-4" style="background-color:#2867B2">'+ '<label for="textfield" class="ClassName" style= "color: white">Class Name</label>' + '<input type="text" name="className" id="className" />'+ ' <input type="button" name="button5" id="deleteClassBtn" value="-" onclick = "RemoveClass5(form)"/>'+ '<input type = "button" class = "btn AddClass" id = "AddClassButton1" value = "+" onClick = "AddClass6()"/>' + '</form>'+'<form class="offset-xl-4 col-xl-4" id="ClassVar">'+ '<br>'+ '<div class="col-xl-12">' +'<h5 style="color:#2867B2;">Class Variables</h5>'+ '<label for="varName" ></label>'+'<select name="DDL" class="DDL">' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>' +'<input type="text" name="varName" id="varName2"/>' + '<input type="button" name="buttonPlus" id="varPlusButton" value="+" onclick="AddTextBox13()" />' + '<div id="TextBoxContainer13" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />'+'</div>'+'</form>'+'<form class="offset-xl-4 col-xl-4" id="classFunc" />'+'<div class="col-xl-12">'+ '<h5 style="color:#2867B2;">Class Functions </h5>' +'<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="funcName2" type="text" value ="" />' + '<input type="button" value="+" id="funcPlusButton" onclick = "AddTextBox14()" />'+ '<div id="TextBoxContainer14" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />' +'</div>'+ '</form>'+'<form class="Doffset-xl-4 col-xl-4">'+ '<label for="textfield" class="ClassName" style= "color:#2867B2 ">Class Dependency</label>'+ '<label for="dependName"></label>'+'<input type="text" name="dependName1" id="dependName1"/>'+ '</form>'+'</div>'+'<br>' 
+	}
+	function GetDynamicClass6(){
+	return'<form class="Acol-xl-3 offset-xl-4 col-xl-4" style="background-color:#2867B2">'+ '<label for="textfield" class="ClassName" style= "color: white">Class Name</label>' + '<input type="text" name="className" id="className" />'+ ' <input type="button" name="button5" id="deleteClassBtn" value="-" onclick = "RemoveClass6(form)"/>'+ '<input type = "button" class = "btn AddClass" id = "AddClassButton1" value = "+" onClick = "AddClass7()"/>' + '</form>'+'<form class="offset-xl-4 col-xl-4" id="ClassVar">'+ '<br>'+ '<div class="col-xl-12">' +'<h5 style="color:#2867B2;">Class Variables</h5>'+ '<label for="varName" ></label>'+'<select name="DDL" class="DDL">' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>' +'<input type="text" name="varName" id="varName2"/>' + '<input type="button" name="buttonPlus" id="varPlusButton" value="+" onclick="AddTextBox15()" />' + '<div id="TextBoxContainer15" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />'+'</div>'+'</form>'+'<form class="offset-xl-4 col-xl-4" id="classFunc" />'+'<div class="col-xl-12">'+ '<h5 style="color:#2867B2;">Class Functions </h5>' +'<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="funcName2" type="text" value ="" />' + '<input type="button" value="+" id="funcPlusButton" onclick = "AddTextBox16()" />'+ '<div id="TextBoxContainer16" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />' +'</div>'+ '</form>'+'<form class="Doffset-xl-4 col-xl-4">'+ '<label for="textfield" class="ClassName" style= "color:#2867B2 ">Class Dependency</label>'+ '<label for="dependName"></label>'+'<input type="text" name="dependName1" id="dependName1"/>'+ '</form>'+'</div>'+'<br>' 
+	}
+	function GetDynamicClass7(){
+	return'<form class="Acol-xl-3 offset-xl-4 col-xl-4" style="background-color:#2867B2">'+ '<label for="textfield" class="ClassName" style= "color: white">Class Name</label>' + '<input type="text" name="className" id="className" />'+ ' <input type="button" name="button5" id="deleteClassBtn" value="-" onclick = "RemoveClass7(form)"/>'+ '<input type = "button" class = "btn AddClass" id = "AddClassButton1" value = "+" onClick = "AddClass8()"/>'+ '</form>'+'<form class="offset-xl-4 col-xl-4" id="ClassVar">'+ '<br>'+ '<div class="col-xl-12">' +'<h5 style="color:#2867B2;">Class Variables</h5>'+ '<label for="varName" ></label>'+'<select name="DDL" class="DDL">' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>' +'<input type="text" name="varName" id="varName2"/>' + '<input type="button" name="buttonPlus" id="varPlusButton" value="+" onclick="AddTextBox17()" />' + '<div id="TextBoxContainer17" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />'+'</div>'+'</form>'+'<form class="offset-xl-4 col-xl-4" id="classFunc" />'+'<div class="col-xl-12">'+ '<h5 style="color:#2867B2;">Class Functions </h5>' +'<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="funcName2" type="text" value ="" />' + '<input type="button" value="+" id="funcPlusButton" onclick = "AddTextBox18()" />'+ '<div id="TextBoxContainer18" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />' +'</div>'+ '</form>'+'<form class="Doffset-xl-4 col-xl-4">'+ '<label for="textfield" class="ClassName" style= "color:#2867B2 ">Class Dependency</label>'+ '<label for="dependName"></label>'+'<input type="text" name="dependName1" id="dependName1"/>'+ '</form>'+'</div>'+'<br>' 
+	}
+	function GetDynamicClass8(){
+	return'<form class="Acol-xl-3 offset-xl-4 col-xl-4" style="background-color:#2867B2">'+ '<label for="textfield" class="ClassName" style= "color: white">Class Name</label>' + '<input type="text" name="className" id="className" />'+ ' <input type="button" name="button5" id="deleteClassBtn" value="-" onclick = "RemoveClass8(form)"/>'+ '</form>'+'<form class="offset-xl-4 col-xl-4" id="ClassVar">'+ '<br>'+ '<div class="col-xl-12">' +'<h5 style="color:#2867B2;">Class Variables</h5>'+ '<label for="varName" ></label>'+'<select name="DDL" class="DDL">' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>' +'<input type="text" name="varName" id="varName2"/>' + '<input type="button" name="buttonPlus" id="varPlusButton" value="+" onclick="AddTextBox19()" />' + '<div id="TextBoxContainer19" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />'+'</div>'+'</form>'+'<form class="offset-xl-4 col-xl-4" id="classFunc" />'+'<div class="col-xl-12">'+ '<h5 style="color:#2867B2;">Class Functions </h5>' +'<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="funcName2" type="text" value ="" />' + '<input type="button" value="+" id="funcPlusButton" onclick = "AddTextBox20()" />'+ '<div id="TextBoxContainer20" >' + '</div>'+ '<br>'+ '<asp:button ID="btnPost" runat="server" Text="Post" OnClick="Post" />' +'</div>'+ '</form>'+'<form class="Doffset-xl-4 col-xl-4">'+ '<label for="textfield" class="ClassName" style= "color:#2867B2 ">Class Dependency</label>'+ '<label for="dependName"></label>'+'<input type="text" name="dependName1" id="dependName1"/>'+ '</form>'+'</div>'+'<br>' 
+	}
+	function AddClass() {
+	
+	
+    var div = document.createElement('div');
+	
+    div.innerHTML = GetDynamicClass("");
+
+	
+    document.getElementById("ClassContainer").appendChild(div);
+	
+	
+}
+	function AddClass1() {
+	
+	
+    var div1 = document.createElement('div');
+	
+    div1.innerHTML = GetDynamicClass1("");
+	
+	document.getElementById("ClassContainer1").appendChild(div1);
+	
+}
+	function AddClass2() {
+	
+	
+    var div1 = document.createElement('div');
+	
+    div1.innerHTML = GetDynamicClass2("");
+	
+	document.getElementById("ClassContainer2").appendChild(div1);
+	
+}
+	function AddClass3() {
+	
+	
+    var div1 = document.createElement('div');
+	
+    div1.innerHTML = GetDynamicClass3("");
+	
+	document.getElementById("ClassContainer3").appendChild(div1);
+	
+}
+	function AddClass4() {
+	
+	
+    var div1 = document.createElement('div');
+	
+    div1.innerHTML = GetDynamicClass4("");
+	
+	document.getElementById("ClassContainer4").appendChild(div1);
+	
+}
+	function AddClass5() {
+	
+	
+    var div1 = document.createElement('div');
+	
+    div1.innerHTML = GetDynamicClass5("");
+	
+	document.getElementById("ClassContainer5").appendChild(div1);
+	
+}
+	function AddClass6() {
+	
+	
+    var div1 = document.createElement('div');
+	
+    div1.innerHTML = GetDynamicClass6("");
+	
+	document.getElementById("ClassContainer6").appendChild(div1);
+	
+}
+	function AddClass7() {
+	
+	
+    var div1 = document.createElement('div');
+	
+    div1.innerHTML = GetDynamicClass7("");
+	
+	document.getElementById("ClassContainer7").appendChild(div1);
+	
+}
+	function AddClass8() {
+	
+	
+    var div1 = document.createElement('div');
+	
+    div1.innerHTML = GetDynamicClass8("");
+	
+	document.getElementById("ClassContainer8").appendChild(div1);
+	
+}
+ 
+function RemoveClass(div) {
+	 
+    document.getElementById("ClassContainer").removeChild(div.parentNode);
+
+	
+}
+	function RemoveClass1(div1) {
+	 
+    
+	document.getElementById("ClassContainer1").removeChild(div1.parentNode);
+	
+}
+	function RemoveClass2(div1) {
+	 
+    
+	document.getElementById("ClassContainer2").removeChild(div1.parentNode);
+	
+}
+	function RemoveClass3(div1) {
+	 
+    
+	document.getElementById("ClassContainer3").removeChild(div1.parentNode);
+	
+}
+	function RemoveClass4(div1) {
+	 
+    
+	document.getElementById("ClassContainer4").removeChild(div1.parentNode);
+	
+}
+	function RemoveClass5(div1) {
+	 
+    
+	document.getElementById("ClassContainer5").removeChild(div1.parentNode);
+	
+}
+	function RemoveClass6(div1) {
+	 
+    
+	document.getElementById("ClassContainer6").removeChild(div1.parentNode);
+	
+}
+	function RemoveClass7(div1) {
+	 
+    
+	document.getElementById("ClassContainer7").removeChild(div1.parentNode);
+	
+}
+	function RemoveClass8(div1) {
+	 
+    
+	document.getElementById("ClassContainer8").removeChild(div1.parentNode);
+	
+}
+function RecreateDynamicTextboxes() {
+    var values = eval('<%=Values%>');
+    if (values != null) {
+        var html = "";
+        for (var i = 0; i < values.length; i++) {
+            html += "<div>" + GetDynamicClass(values[i]) + "</div>";
+        }
+	
+		 
+ 
+        
+		document.getElementById("ClassContainer").appendChild(label).appendChild(select);
+    }
+}
+window.onload = RecreateDynamicTextboxes;
+
+	</script> 
+
+<!-----Script to add and delete textboxes and drop down menus for Class function comment------> 
+
+<script type="text/javascript">
+	
+	function GetDynamicTextBox1(value){
+    return  '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="funcName1" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteFuncBtn" onclick = "RemoveTextBox1(this)" />'
+	
+}
+function AddTextBox1() {
+	
+	
+    var div1 = document.createElement('DIV');
+    div1.innerHTML = GetDynamicTextBox1("");
+    document.getElementById("TextBoxContainer1").appendChild(div1);
+	
+}
+ 
+function RemoveTextBox1(div1) {
+    document.getElementById("TextBoxContainer1").removeChild(div1.parentNode);
+	
+}
+	
+	
+</script> 
+<script type="text/javascript">
+	
+function GetDynamicTextBox(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName1" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn" onclick = "RemoveTextBox(this)">'
+	
+}
+function AddTextBox() {
+	
+	
+    var div = document.createElement('DIV');
+    div.innerHTML = GetDynamicTextBox("");
+
+    document.getElementById("TextBoxContainer").appendChild(div);
+	
+}
+ 
+function RemoveTextBox(div) {
+    document.getElementById("TextBoxContainer").removeChild(div.parentNode);
+
+	
+	
+}
+ 
+function RecreateDynamicTextboxes() {
+    var values = eval('<%=Values%>');
+    if (values != null) {
+        var html = "";
+        for (var i = 0; i < values.length; i++) {
+            html += "<div>" + GetDynamicTextBox(values[i]) + "</div>";
+        }
+	
+		 
+ 
+        
+		document.getElementById("TextBoxContainer").appendChild(label).appendChild(select);
+    }
+}
+window.onload = RecreateDynamicTextboxes;
+
+	
+
+	
+	function GetDynamicTextBox3(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox3(this)"/>'
+	
+}
+	function GetDynamicTextBox4(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox4(this)"/>'
+	
+}
+	function GetDynamicTextBox5(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox5(this)"/>'
+	
+}
+	function GetDynamicTextBox6(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox6(this)"/>'
+	
+}
+function GetDynamicTextBox7(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox7(this)"/>'
+	
+}
+function GetDynamicTextBox8(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox8(this)"/>'
+	
+}
+function GetDynamicTextBox9(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox9(this)"/>'
+	
+}
+function GetDynamicTextBox10(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox10(this)"/>'
+	
+}
+function GetDynamicTextBox11(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox11(this)"/>'
+	
+}
+function GetDynamicTextBox12(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox12(this)"/>'
+	
+}
+function GetDynamicTextBox13(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox13(this)"/>'
+	
+}
+function GetDynamicTextBox14(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox14(this)"/>'
+	
+}
+	function GetDynamicTextBox15(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox15(this)"/>'
+	
+}
+	function GetDynamicTextBox16(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox16(this)"/>'
+	
+}
+	function GetDynamicTextBox17(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox17(this)"/>'
+	
+}
+	function GetDynamicTextBox18(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox18(this)"/>'
+	
+}
+	function GetDynamicTextBox19(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox19(this)"/>'
+	
+}
+	function GetDynamicTextBox20(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName3" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn1" onclick = "RemoveTextBox20(this)"/>'
+	
+}
+function AddTextBox3() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox3("");
+    document.getElementById("TextBoxContainer3").appendChild(div3);
+	
+}
+function AddTextBox4() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox4("");
+    document.getElementById("TextBoxContainer4").appendChild(div3);
+	
+}
+	function AddTextBox5() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox5("");
+    document.getElementById("TextBoxContainer5").appendChild(div3);
+	
+}
+function AddTextBox6() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox6("");
+    document.getElementById("TextBoxContainer6").appendChild(div3);
+	
+}
+ function AddTextBox7() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox7("");
+    document.getElementById("TextBoxContainer7").appendChild(div3);
+	
+}
+ function AddTextBox8() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox8("");
+    document.getElementById("TextBoxContainer8").appendChild(div3);
+	
+}
+function AddTextBox9() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox9("");
+    document.getElementById("TextBoxContainer9").appendChild(div3);
+	
+}
+function AddTextBox10() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox10("");
+    document.getElementById("TextBoxContainer10").appendChild(div3);
+	
+}
+function AddTextBox11() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox11("");
+    document.getElementById("TextBoxContainer11").appendChild(div3);
+	
+}
+function AddTextBox12() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox12("");
+    document.getElementById("TextBoxContainer12").appendChild(div3);
+	
+}
+function AddTextBox13() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox13("");
+    document.getElementById("TextBoxContainer13").appendChild(div3);
+	
+}
+function AddTextBox14() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox14("");
+    document.getElementById("TextBoxContainer14").appendChild(div3);
+	
+}
+function AddTextBox15() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox15("");
+    document.getElementById("TextBoxContainer15").appendChild(div3);
+	
+}
+function AddTextBox16() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox16("");
+    document.getElementById("TextBoxContainer16").appendChild(div3);
+	
+}
+function AddTextBox17() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox17("");
+    document.getElementById("TextBoxContainer17").appendChild(div3);
+	
+}
+function AddTextBox18() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox18("");
+    document.getElementById("TextBoxContainer18").appendChild(div3);
+	
+}
+function AddTextBox19() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox19("");
+    document.getElementById("TextBoxContainer19").appendChild(div3);
+	
+}
+function AddTextBox20() {
+	
+	
+    var div3 = document.createElement('DIV');
+    div3.innerHTML = GetDynamicTextBox20("");
+    document.getElementById("TextBoxContainer20").appendChild(div3);
+	
+}
+
+function RemoveTextBox3(div3) {
+    document.getElementById("TextBoxContainer3").removeChild(div3.parentNode);
+	
+}
+ function RemoveTextBox4(div3) {
+    document.getElementById("TextBoxContainer4").removeChild(div3.parentNode);
+	
+}
+
+function RemoveTextBox5(div3) {
+    document.getElementById("TextBoxContainer5").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox6(div3) {
+    document.getElementById("TextBoxContainer6").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox7(div3) {
+    document.getElementById("TextBoxContainer7").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox8(div3) {
+    document.getElementById("TextBoxContainer8").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox9(div3) {
+    document.getElementById("TextBoxContainer9").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox10(div3) {
+    document.getElementById("TextBoxContainer10").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox11(div3) {
+    document.getElementById("TextBoxContainer11").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox12(div3) {
+    document.getElementById("TextBoxContainer12").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox13(div3) {
+    document.getElementById("TextBoxContainer13").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox14(div3) {
+    document.getElementById("TextBoxContainer14").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox15(div3) {
+    document.getElementById("TextBoxContainer15").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox16(div3) {
+    document.getElementById("TextBoxContainer16").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox17(div3) {
+    document.getElementById("TextBoxContainer17").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox18(div3) {
+    document.getElementById("TextBoxContainer18").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox19(div3) {
+    document.getElementById("TextBoxContainer19").removeChild(div3.parentNode);
+	
+}
+function RemoveTextBox20(div3) {
+    document.getElementById("TextBoxContainer20").removeChild(div3.parentNode);
+	
+}
+	</script> 
+
+<!-----Script to add and delete textboxes and drop down menus for Class variables------> 
+<script type="text/javascript">
+	
+function GetDynamicTextBox(value){
+    return '<select name="DDL" class="DDL"/>' + '<option>Select Modifier</option>'+ '<option>Public</option>'+'<option>Private</option>'+'<option>Protected</option>'+'<input name = "DynamicTextBox" id="varName1" type="text" value ="' + value + '" />' + '<input type="button" value="-" id="deleteVarBtn" onclick = "RemoveTextBox(this)">'
+	
+}
+function AddTextBox() {
+	
+	
+    var div = document.createElement('DIV');
+    div.innerHTML = GetDynamicTextBox("");
+
+    document.getElementById("TextBoxContainer").appendChild(div);
+	
+}
+ 
+function RemoveTextBox(div) {
+    document.getElementById("TextBoxContainer").removeChild(div.parentNode);
+
+	
+	
+}
+ 
+function RecreateDynamicTextboxes() {
+    var values = eval('<%=Values%>');
+    if (values != null) {
+        var html = "";
+        for (var i = 0; i < values.length; i++) {
+            html += "<div>" + GetDynamicTextBox(values[i]) + "</div>";
+        }
+
+		document.getElementById("TextBoxContainer").appendChild(label).appendChild(select);
+    }
+}
+window.onload = RecreateDynamicTextboxes;
+</script> 
+<script> 
+var classNames = [];
+function onClickFunc(){
+		window.alert("Local Storage Function is Running!");
+	
+		const classNameKey = document.getElementById("className");
+		const name1 = classNameKey.value;
+	
+		const varNameKey = document.getElementById("varName");
+		const var1 = varNameKey.value;
+	
+		const funcNameKey = document.getElementById("funcName");
+		const func1 = funcNameKey.value;
+		
+		const dynamicBox = document.getElementById("varName1");
+		const varBox = dynamicBox.value;
+	if(name1 && var1 && func1 && varBox){
+		localStorage.setItem("className1", name1);
+		localStorage.setItem("varName1", var1);
+		localStorage.setItem("funcName1", func1);
+		
+		//const temp =  localStorage.getItem("varName2");
+		//while(temp != varBox){
+		localStorage.setItem("varName2", varBox);
+		//const temp =  localStorage.getItem("varName2");
+		//classNames += name1.value;
+		}
+	else{
+		window.alert("Please Enter valid text!");
+		}
+}
+</script> 
+<!-- End data storage script --> 
+
+<!-- Print Button -->
+<p>&nbsp;</p>
+<div class = "text-center" id = "Buttons">
+  <button type="button" id = "backToMain" class="btn btn-dark" onclick="window.location.href='Index.html'">Back</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="button" id = "printBtn" class="btn btn-dark" onclick= "onPrint()" value = "Print this page" >Print</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="button" id = "FinalPageBtn" class="btn btn-dark" onclick="window.location.href='FinalPage.html'">Finish</button>
+</div>
+<!-- FOOTER -->
+<div class="row" id = "footer">
+  <div class="text-center col-lg-6 offset-lg-3">
+    <h4>&nbsp;</h4>
+    <p>Copyright &copy; 2019 &middot; All Rights Reserved &middot; <a href="#">My Website</a></p>
+  </div>
+</div>
+<!-- END OF FOOTER (The rest is some bootstrap gibberish) --> 
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-3.4.1.min.js"></script> 
+
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/popper.min.js"></script> 
+<script src="js/bootstrap-4.4.1.js"></script> 
+<!-- This is our JS file not bootstrap --> 
+<script src="js/BuilderPage.js"></script>
+</body>
+</html>

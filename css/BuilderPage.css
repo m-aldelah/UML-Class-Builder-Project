@@ -1,0 +1,412 @@
+/* CSS Document */
+.jumbotron-fluid{
+	height: 250px;
+	
+}
+h1.display-4{
+	
+
+}
+
+#AddClassButton{
+	border-radius: 100%;
+	border: 2px solid white;
+	font-weight: bolder;
+	color: white;
+	margin-left: 60px;
+	font-size: 18px;
+	width: 35px;
+    height: 35px;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 2px;
+	
+}
+#AddClassButton1{
+	border-radius: 100%;
+	border: 2px solid white;
+	font-weight: bolder;
+	color: white;
+	margin-left: 15px;
+	font-size: 18px;
+	width: 35px;
+    height: 35px;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 2px;
+	
+}
+
+/* CSS for the UML Class Design*/
+h5{
+	
+	text-align: center;
+}
+
+/*Add button for func and var*/
+#varPlusButton,#funcPlusButton{
+	border-radius: 100%;
+	background: #2867B2;
+	border: 1px solid #2867B2;
+	font-weight: bolder;
+	color: white;
+	font-size: 14px;
+	margin-left: 10px;
+	width: 25px;
+    height: 25px;
+}
+/*Delete button for all functions and varables*/
+#deleteClassBtn{
+	border-radius: 100%;
+	background: #C0070B;
+	border: 1px solid #C0070B;
+	font-weight: bolder;
+	color: white;
+	width: 35px;
+    height: 35px;
+	margin-left: 60px;
+	font-size: 18px;
+}
+	
+
+#deleteVarBtn{
+	border-radius: 100%;
+	background: #C0070B;
+	border: 1px solid #C0070B;
+	font-weight: bolder;
+	color: white;
+	font-size: 14px;
+	margin-left: 13px;
+	width: 25px;
+    height: 25px;
+}
+#deleteVarBtn1{
+	border-radius: 100%;
+	background: #C0070B;
+	border: 1px solid #C0070B;
+	font-weight: bolder;
+	color: white;
+	font-size: 14px;
+	margin-left: 11px;
+	width: 25px;
+    height: 25px;
+}
+#deleteFuncBtn{
+	border-radius: 100%;
+	background: #C0070B;
+	border: 1px solid #C0070B;
+	font-weight: bolder;
+	color: white;
+	font-size: 14px;
+	margin-left: 13px;
+	width: 25px;
+    height: 25px;
+}
+/*For the delete button for the whole class*/
+#deleteClass{
+	border-radius: 100%;
+	background: #C0070B;
+	border: 1px solid #C0070B;
+	
+	font-weight: bolder;
+	color: white;
+	width: 30px;
+    height: 30px;
+	margin-left: 60px;
+	font-size: 18px;
+}
+	
+.Acol-xl-3{
+ background: #2867B2;	
+ margin: auto;
+ padding: 10px;
+border: 1px solid black;
+}
+
+
+#ClassVar,#classFunc{
+	 border: 1px solid black;
+}
+/*Function and Varable text fields*/
+#varName,#funcName,#className{
+	border-radius: 5px;
+	border: 2px solid #2867B2;
+	padding-left: 10px;
+	margin-left: 10px;
+
+}
+#varName1,#funcName1{
+	border-radius: 5px;
+	border: 2px solid #2867B2;
+	padding-left: 10px;
+	margin-left: 20px;
+}
+#varName2,#varName3,#funcName2{
+	border-radius: 5px;
+	border: 2px solid #2867B2;
+	padding-left: 10px;
+	margin-left: 20px;
+	
+}
+#dependName{
+	border-radius: 5px;
+	border: 2px solid #2867B2;
+	padding-left: 10px;
+}
+#dependName1{
+	border-radius: 5px;
+	border: 2px solid #2867B2;
+	padding-left: 10px;
+	margin-left: 10px;
+
+}
+Div{
+	margin-left: auto;
+}
+
+.ClassName{
+	margin-left: 20px;
+	font-weight: bold;
+}
+#className{
+	margin-left: 40px;
+}
+.Ccol-xl-5{
+ margin: auto;
+ padding: 20px;
+ border: 1px solid black;
+
+}
+.Doffset-xl-4{
+margin: auto;
+ padding: 20px;
+ border: 1px solid black;
+}
+/*Drop down menus*/
+.DDL,.DDL1{
+	cursor: pointer;
+	border-radius: 5px;
+	border: 2px solid #C0070B;
+}
+.DDL1{
+	margin-left: 150px;
+}
+
+/*End of UML Class Design*/
+#sliderContainer{
+	
+}
+
+#ButtonToBuilder{
+	height: 120px;
+}
+
+#backToMain,#FinalPageBtn,#printBtn{
+	
+	background-color: #2867B2;
+	color: white;
+	font-weight: bold;
+	border-radius: 50px;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.cta-100 {
+  margin-top: 100px;
+  padding-left: 8%;
+  padding-top: 7%;
+}
+.col-md-4{
+    padding-bottom:20px;
+}
+
+.white {
+  color: #fff !important;
+}
+.mt{float: left;margin-top: -20px;padding-top: 20px;}
+.bg-blue-ui {
+  background-color: #708198 !important;
+}
+figure img{width:300px;}
+
+#blogCarousel {
+  padding-bottom: 100px;
+}
+
+.blog .carousel-indicators {
+  left: 0;
+  top: -50px;
+  height: 50%;
+}
+
+
+/* The colour of the indicators */
+
+.blog .carousel-indicators li {
+  background: #708198;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+}
+
+.blog .carousel-indicators .active {
+  background: #0fc9af;
+}
+
+
+
+
+.item-carousel-blog-block {
+  outline: medium none;
+  padding: 15px;
+}
+
+.item-box-blog {
+  border: 1px solid #dadada;
+  text-align: center;
+  z-index: 4;
+  padding: 20px;
+}
+
+.item-box-blog-image {
+  position: relative;
+}
+
+.item-box-blog-image figure img {
+  width: 100%;
+  height: auto;
+}
+
+.item-box-blog-date {
+  position: absolute;
+  z-index: 5;
+  padding: 4px 20px;
+  top: -20px;
+  right: 8px;
+  background-color: #41cb52;
+}
+
+.item-box-blog-date span {
+  color: #fff;
+  display: block;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.item-box-blog-date span.mon {
+  font-size: 18px;
+}
+
+.item-box-blog-date span.day {
+  font-size: 16px;
+}
+
+.item-box-blog-body {
+  padding: 10px;
+}
+
+.item-heading-blog a h5 {
+  margin: 0;
+  line-height: 1;
+  text-decoration:none;
+  transition: color 0.3s;
+}
+
+.item-box-blog-heading a {
+    text-decoration: none;
+}
+
+.item-box-blog-data p {
+  font-size: 13px;
+}
+
+.item-box-blog-data p i {
+  font-size: 12px;
+}
+
+.item-box-blog-text {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.mt-10 {
+  float: left;
+  margin-top: -10px;
+  padding-top: 10px;
+}
+
+.btn.bg-blue-ui.white.read {
+  cursor: pointer;
+  padding: 4px 20px;
+  float: left;
+  margin-top: 10px;
+}
+
+.btn.bg-blue-ui.white.read:hover {
+  box-shadow: 0px 5px 15px inset #4d5f77;
+}
+
+[data-tip] {
+    position:relative;
+
+}
+[data-tip]:before {
+    content:'';
+    /* hides the tooltip when not hovered */
+    display:none;
+    content:'';
+    display:none;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #1a1a1a;
+    position:absolute;
+    top:30px;
+    left:35px;
+    z-index:8;
+    font-size:0;
+    line-height:0;
+    width:0;
+    height:0;
+    position:absolute;
+    top:30px; 
+    left:35px;
+    z-index:8;
+    font-size:0;
+    line-height:0;
+    width:0;
+    height:0;
+}
+[data-tip]:after {
+    display:none;
+    content:attr(data-tip);
+    position:absolute;
+    top:35px;
+    left:0px;
+    padding:5px 8px;
+    background: rgba(40,103,178,0.75);
+    color:white;
+	font-weight: bolder;
+    z-index:9;
+    font-size: 0.75em;
+    height:25px;
+    line-height:18px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    white-space:nowrap;
+    word-wrap:normal;
+}
+[data-tip]:hover:before,
+[data-tip]:hover:after {
+    display:block;
+}
+
+
+
+.submitBtn{
+	background-color: blue;
+	color: white
+}
+
+
